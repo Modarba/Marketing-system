@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class invite extends Model
 {
+    protected  $fillable=[
+        'Friends_id',
+        'user_id',
+        'product_id',
+        'invite',
+    ];
     use HasFactory;
     public function friend()
     {
