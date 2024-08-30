@@ -22,6 +22,10 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+    public function Friend()
+    {
+        return $this->hasMany(Friend::class);
+    }
     public function Page()
     {
         return $this->hasMany(Page::class);
