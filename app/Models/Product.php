@@ -16,4 +16,8 @@ class Product extends Model
     {
         return $this->belongsToMany(Friend::class);
     }
+    public function invite()
+    {
+        return $this->belongsTo(invite::class);
+    }
 }

@@ -12,4 +12,12 @@ class invite extends Model
     {
         return $this->belongsToMany(Friend::class);
     }
+    public function user()
+    {
+        return $this->belongsToMany(User::class);
+    }
+    public function prodcut()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

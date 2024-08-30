@@ -42,6 +42,10 @@ class UserController extends Controller
             return \response()->json(['Friend request Reject'],201);
         }
     }
-    
+    public function send_invite_for_friend(Request $request)
+    {
+        $user_id=Auth::id();
+        
+    }
 
 }

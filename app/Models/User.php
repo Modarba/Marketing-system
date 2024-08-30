@@ -22,6 +22,10 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+    public function invite()
+    {
+        return $this->hasMany(invite::class);
+    }
     public function Friend()
     {
         return $this->hasMany(Friend::class);
