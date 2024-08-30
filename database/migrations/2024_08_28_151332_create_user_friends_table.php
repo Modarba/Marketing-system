@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->foreignId('Friends_id')->constrained('friends')->cascadeOnDelete();
+            //$table->enum('status',['Accept','reject']);
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('product_type');
-
+            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
     }

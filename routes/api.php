@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-
+Route::post('SendRequest',[\App\Http\Controllers\UserController::class,'Send_a_friend_request']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    Route::post('createPage',[\App\Http\Controllers\UserController::class,'CreatePage']);
     return $request->user();
 });

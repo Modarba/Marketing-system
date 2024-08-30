@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class invite extends Model
 {
     use HasFactory;
+    public function friend()
+    {
+        return $this->belongsToMany(Friend::class);
+    }
 }
