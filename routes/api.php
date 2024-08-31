@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+Route::group(['middleware'=>['auth:sanctum']],function (){
+    Route::post('register',[\App\Http\Controllers\Auth::class,'register']);
+    Route::post('Login',[\App\Http\Controllers\Auth::class,'login']);
+    Route::post('Logout',[\App\Http\Controllers\Auth::class,'logout']);
+});
 Route::get('AddSale/{id}',[\App\Http\Controllers\Product::class,'AddSaleForProduct']);
 Route::post('sendinvite',[\App\Http\Controllers\UserController::class,'send_invite_for_friend']);
 Route::post('Acceptinvite/{id}',[\App\Http\Controllers\UserController::class,'AcceptInvite']);
@@ -20,5 +25,6 @@ Route::post('SendRequest',[\App\Http\Controllers\UserController::class,'Send_a_f
 Route::post('ResponseRequest/{id}',[\App\Http\Controllers\UserController::class,'ResponseRequest']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::post('createPage',[\App\Http\Controllers\UserController::class,'CreatePage']);
+    Route::post('register',[\App\Http\Controllers\Auth::class,'register']);
     return $request->user();
 });
