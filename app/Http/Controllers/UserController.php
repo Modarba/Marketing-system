@@ -85,7 +85,7 @@ class UserController extends Controller
             return response()->json(['message'=>'invite reject'],201);
         }
     }
-    
+
 
 
 }
