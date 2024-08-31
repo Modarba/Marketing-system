@@ -32,7 +32,7 @@ class User extends Authenticatable
     }
     public function Page()
     {
-        return $this->hasMany(Page::class);
+        return $this->belongsToMany(Page::class,'user_page_pivot');
     }
 
     /**

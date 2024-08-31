@@ -4,17 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class Product extends Controller
 {
-    public function AddSaleForProduct(Request $request)
+    public function AddSaleForProduct(Request $request,$id)
     {
-        $req=$request->input('product');
-        $pro=new \App\Models\Product();
-        $dis=$pro->price*0.1;
         $startOfWeek = Carbon::now()->startOfWeek();
         $endOfWeek = Carbon::now()->endOfWeek();
-        $product=\App\Models\Product::query()->where('id',$req)->where('created_at','<',$startOfWeek)->where('created_at','>',$endOfWeek)->update(['price'=>$dis]);
-        return response()->json(['message'=>'Ok','Data'=>$product],201);
+        $pro=\App\Models\Product::find($id);
+        if ($pro)
+        {
+            if (\App\Models\Product::where('id',$id)->whereBetween('created_at',[$startOfWeek,$endOfWeek]))
+            {
+                ($pro->price-=40)/100;
+                $pro->save();
+            }
+        }
     }
 }

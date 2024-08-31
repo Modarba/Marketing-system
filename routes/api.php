@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-Route::post('AddSale',[\App\Http\Controllers\Product::class,'AddSaleForProduct']);
+Route::get('AddSale/{id}',[\App\Http\Controllers\Product::class,'AddSaleForProduct']);
 Route::post('sendinvite',[\App\Http\Controllers\UserController::class,'send_invite_for_friend']);
 Route::post('Acceptinvite/{id}',[\App\Http\Controllers\UserController::class,'AcceptInvite']);
 Route::post('SendRequest',[\App\Http\Controllers\UserController::class,'Send_a_friend_request']);

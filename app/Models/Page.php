@@ -12,7 +12,7 @@ class Page extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(User::class,'user_page_pivot');
 
     }
     public function product()
