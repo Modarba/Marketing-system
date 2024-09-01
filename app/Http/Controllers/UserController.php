@@ -87,9 +87,11 @@ class UserController extends Controller
         }
     }
 
-    public function AddMemberToPage(Request $request)
+    public function AddMemberToPage(Request $request,$page_id)
     {
-        
+        $re=$request->input('user_id');
+        $page=Page::find($page_id);
+        DB::table('user_page_pivot')->where('page_id',$page_id)->insert(['user_id'=>$re,'page_id'=>$page_id,'product_id'=>null]);
+        return \response()->json(['Member Of Page'=>$page->user],201);
     }
-
 }

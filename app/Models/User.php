@@ -34,7 +34,10 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Page::class,'user_page_pivot');
     }
-
+    public function Product()
+    {
+        return $this->belongsToMany(Product::class,'user_page_pivot');
+    }
     /**
      * The attributes that should be hidden for serialization.
      *

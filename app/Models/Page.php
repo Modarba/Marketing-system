@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Page extends Model
 {
     use HasFactory;
-    protected $fillable=['name','image','description','product_type'];
+    protected $fillable=['name','image','description','product_type','user_id'];
 
     public function user()
     {
@@ -17,6 +17,6 @@ class Page extends Model
     }
     public function product()
     {
-        return $this->hasMany(Product::class);
+        return $this->belongsToMany(Product::class,'page_product');
     }
 }

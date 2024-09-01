@@ -11,7 +11,7 @@ class Product extends Model
     use HasFactory;
     public function page()
     {
-        return $this->belongsToMany(Page::class);
+        return $this->belongsToMany(Page::class,'page_product');
     }
     public function friend()
     {
@@ -20,5 +20,9 @@ class Product extends Model
     public function invite()
     {
         return $this->belongsTo(invite::class);
+    }
+    public function user()
+    {
+        return $this->belongsToMany(User::class,'user_page_pivot');
     }
 }
