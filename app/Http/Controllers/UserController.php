@@ -94,4 +94,10 @@ class UserController extends Controller
         DB::table('user_page_pivot')->where('page_id',$page_id)->insert(['user_id'=>$re,'page_id'=>$page_id,'product_id'=>null]);
         return \response()->json(['Member Of Page'=>$page->user],201);
     }
+    public function NumberOfProduct(Request $request)
+    {
+        $Re=$request->input('page_id');
+        $num=DB::table('page_product')->where('page_id',$Re)->count('product_id');
+        return \response()->json(['number of Product inside Page'=>$num],201);
+    }
 }

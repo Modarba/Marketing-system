@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+Route::get('Num',[\App\Http\Controllers\UserController::class,'NumberOfProduct']);
+
 Route::post('register',[\App\Http\Controllers\Auth::class,'register']);
 Route::post('Login',[\App\Http\Controllers\Auth::class,'login']);
 Route::post('Logout',[\App\Http\Controllers\Auth::class,'logout']);
