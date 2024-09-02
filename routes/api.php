@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('Num',[\App\Http\Controllers\UserController::class,'NumberOfProduct']);
-Route::get('block/{user_id}',[\App\Http\Controllers\UserController::class,'BlockMember'])->middleware('block');
 Route::post('register',[\App\Http\Controllers\Auth::class,'register']);
 Route::post('Login',[\App\Http\Controllers\Auth::class,'login']);
 Route::post('Logout',[\App\Http\Controllers\Auth::class,'logout']);

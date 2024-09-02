@@ -16,14 +16,14 @@ class Block
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $user=\Illuminate\Support\Facades\Auth::user();
-        $r=$request->route('user_id');
-        if ($r)
-        {
-            abort(403,'you cant see Page');
-        }else if ($r!=$user->id){
-                return $next($request);
+        $user = \Illuminate\Support\Facades\Auth::id();
+        $r = $request->route('user_id');
+        if ($r) {
+            abort(403, 'you cant see Page');
         }
-
+        else {
+            return $next($request);
+        }
     }
+
 }

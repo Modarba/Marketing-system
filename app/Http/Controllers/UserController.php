@@ -100,8 +100,4 @@ class UserController extends Controller
         $num=DB::table('page_product')->where('page_id',$Re)->count('product_id');
         return \response()->json(['number of Product inside Page'=>$num],201);
     }
-    public function BlockMember(Request $request,$user_id)
-    {
-        $Page=Page::query()->where('user_id','!',$user_id)->get();
-    }
 }
